@@ -22,11 +22,11 @@ func (fs *Myfs) GetAttr(name string, context *fuse.Context) (*fuse.Attr, fuse.St
 		}, fuse.OK
 	case "dir1":
 		return &fuse.Attr{
-			Mode: fuse.S_IFDIR,
+			Mode: fuse.S_IFDIR | 0744,
 		}, fuse.OK
 	case "file.txt":
 		return &fuse.Attr{
-			Mode: fuse.S_IFREG | 0644, Size: uint64(len("HELLO WORLD")),
+			Mode: fuse.S_IFREG | 0777, Size: uint64(len("HELLO WORLD")),
 		}, fuse.OK
 
 	}
